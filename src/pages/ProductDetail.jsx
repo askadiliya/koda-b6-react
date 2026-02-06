@@ -13,7 +13,7 @@ function ProductDetail() {
           <img
             src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"
             alt="Hazelnut Latte"
-            className="w-full h-[420px] object-cover rounded-xl mb-6"
+            className="w-full h-105 object-cover rounded-xl mb-6"
           />
 
           {/* Thumbnail */}
@@ -54,7 +54,7 @@ function ProductDetail() {
             <span className="text-gray-500">5.0</span>
             <span className="text-gray-400">| 200+ Review</span>
             <span className="text-orange-500 flex items-center gap-1">
-              Recommendation 👍
+              Recommendation 
             </span>
           </div>
 
