@@ -31,7 +31,7 @@ function Home() {
     <div>
       {/* HERO SECTION */}
       <section className="grid grid-cols-1 md:grid-cols-6">
-        <div className="md:col-span-3 flex flex-col justify-center gap-6 p-5 bg-gradient-to-b from-[#777C82] to-[#0B0909] md:p-20">
+        <div className="md:col-span-3 flex flex-col justify-center gap-6 p-5 bg-linear-to-b from-[#777C82] to-[#0B0909] md:p-20">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
             Start Your Day with <br /> Coffee and Good <br /> Meals
           </h1>
@@ -118,6 +118,8 @@ function Home() {
           <img src="/img/Huge Global.png" alt="Map" className="w-full min-h-full object-cover"/>
         </div>
       </section>
+
+      <section></section>
 
 
     </div>
