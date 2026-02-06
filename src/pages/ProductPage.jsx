@@ -1,5 +1,5 @@
+import { CgShoppingCart } from "react-icons/cg"; 
 import React, { useRef } from 'react'
-import ProductBg from '../assets/img/Rectangle 299.png'
 
 function ProductPage() {
   const promoRef = useRef(null)
@@ -22,8 +22,7 @@ function ProductPage() {
     <main className="w-full">
       {/* ================= HERO ================= */}
       <section
-        className="w-full h-96 relative bg-cover bg-center"
-        style={{ backgroundImage: `url(${ProductBg})` }}
+        className="w-full h-96 relative bg-[url(/img/bgcoffe.png)] bg-cover bg-center"
       >
         <div className="absolute inset-0 bg-black/40"></div>
 
@@ -47,13 +46,13 @@ function ProductPage() {
               onClick={scrollLeft}
               className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300"
             >
-              ←
+              <img src="/img/Groupr.png" alt="" />
             </button>
             <button
               onClick={scrollRight}
               className="w-10 h-10 rounded-full bg-orange-500 text-white hover:bg-orange-600"
             >
-              →
+              <img src="/img/Groupl.png" alt="" />
             </button>
           </div>
         </div>
@@ -74,10 +73,10 @@ function ProductPage() {
           {[1, 2, 3, 4, 5].map((item) => (
             <div
               key={item}
-              className="min-w-[280px] bg-green-200 rounded-2xl p-5 flex gap-4"
+              className="min-w-70 bg-green-200 rounded-2xl p-5 flex gap-4"
             >
-              <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                ☕
+              <div className="flex items-center justify-center">
+                <img src="/img/person-product.png" alt="leadise" />
               </div>
               <div>
                 <p className="font-bold text-sm">HAPPY MOTHER’S DAY!</p>
@@ -91,8 +90,8 @@ function ProductPage() {
 
           {/* HIGHLIGHT */}
           <div className="min-w-[320px] bg-yellow-300 rounded-2xl p-5 flex gap-4">
-            <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-              ☕
+            <div className="flex items-center justify-center">
+              <img src="img/person2-product.png" alt="men" />
             </div>
             <div>
               <p className="font-bold text-sm">
@@ -127,7 +126,7 @@ function ProductPage() {
               <input
                 type="text"
                 placeholder="Search Your Product"
-                className="w-full px-4 py-2 rounded-md text-black outline-none"
+                className="w-full px-4 py-2 rounded-md text-white "
               />
             </div>
 
@@ -237,8 +236,8 @@ function ProductPage() {
                     <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md">
                       Buy
                     </button>
-                    <button className="w-10 border border-orange-500 text-orange-500 rounded-md">
-                      🛒
+                    <button className="w-10 border border-orange-500 text-orange-500 rounded-md flex justify-center items-center">
+                      <CgShoppingCart  className="text-2xl"/>
                     </button>
                   </div>
                 </div>
