@@ -35,25 +35,25 @@ function LoginPage() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 min-h-screen bg-white">
+    <div className="grid grid-cols-6 md:h-screen">
       {/* IMAGE */}
-      <div className="hidden md:block md:col-span-2">
+      <div className="hidden md:col-span-2 md:block w-full min-h-screen">
         <img
-          src="/images/Login.png"
+          src="/img/login.png"
           className="w-full h-full object-cover"
           alt="Login"
         />
       </div>
 
       {/* FORM */}
-      <div className="md:col-span-4 flex items-center justify-center px-6">
-        <div className="w-full max-w-md">
+      <div className="col-span-6 w-full min-h-screen flex justify-center items-center px-10 md:col-span-4">
+        <div className="w-full">
           <h1 className="text-2xl font-semibold mb-2">Login</h1>
           <p className="text-gray-500 mb-6">
             Enter your account credentials
           </p>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
             <div>
               <Input
                 type="email"
