@@ -33,19 +33,19 @@ function RegisterPage() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 min-h-screen bg-white">
+    <div className="grid grid-cols-6 md:h-screen">
       {/* LEFT IMAGE */}
-      <div className="hidden md:block md:col-span-2">
+      <div className="hidden md:col-span-2 md:block w-full min-h-screen">
         <img
-          src="/images/Register.png"
+          src="/img/Register.png"
           alt="Register"
           className="w-full h-full object-cover"
         />
       </div>
 
       {/* FORM */}
-      <div className="md:col-span-4 flex items-center justify-center px-6">
-        <div className="w-full max-w-md">
+      <div className="col-span-6 w-full min-h-screen flex justify-center items-center px-10 md:col-span-4">
+        <div className="w-full">
           <h1 className="text-2xl font-semibold mb-2">Register</h1>
           <p className="text-gray-500 mb-6">
             Fill out the form correctly
