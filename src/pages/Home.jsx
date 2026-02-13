@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 
+
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const URL =
-    "https://raw.githubusercontent.com/askadiliya/koda-b6-html/refs/heads/main/data/data.json";
+  const URL ="https://raw.githubusercontent.com/askadiliya/data/refs/heads/main/data/data.json";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,7 +102,7 @@ function Home() {
         {loading ? (
           <p className="text-gray-500">Loading products...</p>
         ) : products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="flex flex-col gap-10 md:flex-row md:justify-center items-center">
             {products.map((item) => (
               <ProductCard key={item.id} product={item} />
             ))}
