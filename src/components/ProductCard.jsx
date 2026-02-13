@@ -1,60 +1,93 @@
-// function ProductCard({ product }) {
-//   return (
-//     <div className="border rounded-lg shadow hover:shadow-lg overflow-hidden flex flex-col h-full">
-//       <img
-//         src={product.image}
-//         alt={product.title}
-//         className="w-full h-48 object-cover"
-//       />
-//       <div className="p-4 flex flex-col flex-1">
-//         <h3 className="font-semibold text-lg">{product.title}</h3>
-//         <p className="text-gray-500 text-sm flex-1">{product.description}</p>
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-//         {/* Harga & rating selalu di bawah */}
-//         <div className="mt-2">
-//           <div className="flex items-center justify-between">
-//             <span className="text-[#FF8906] font-bold">Rp{product.price}</span>
-//             <span className="text-gray-400 line-through text-sm">
-//               Rp{product.oldPrice}
-//             </span>
-//           </div>
-//           <div className="mt-2 text-yellow-400">
-//             {"★".repeat(product.rating)}{"☆".repeat(5 - product.rating)}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+const ProductCard = ({ product }) => {
+  // Fungsi untuk format mata uang agar rapi (Contoh: 10000 -> 10.000)
+  const formatIDR = (price) => {
+    return new Intl.NumberFormat('id-ID', {
+      minimumFractionDigits: 0,
+    }).format(price);
+  };
 
-// export default ProductCard;
-
-import React from "react";
-
-export default function ProductCard({ item, onBuy }) {
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
-      <img
-        src={item.image}
-        alt={item.title}
-        className="w-full h-48 object-cover"
-      />
+    <div className="max-w-75 bg-white rounded-lg shadow-md overflow-hidden relative font-sans">
+      {/* Badge Flash Sale! (Muncul jika ada oldPrice/diskon) */}
+      {product.oldPrice && (
+        <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase italic z-10">
+          FLASH SALE!
+        </div>
+      )}
 
+      {/* Bagian Gambar */}
+      <div className="overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+        />
+      </div>
+
+      {/* Bagian Konten */}
       <div className="p-4">
-        <h2 className="font-bold text-lg">{item.title}</h2>
-        <p className="text-gray-500 text-sm">{item.category}</p>
+        <h3 className="text-xl font-semibold text-gray-800">
+          {product.name}
+        </h3>
+        
+        {/* Deskripsi (dibatasi 2 baris agar tetap rapi) */}
+        <p className="text-xs text-gray-500 mt-2 leading-relaxed line-clamp-2">
+          {product.description}
+        </p>
 
-        <div className="flex justify-between items-center mt-3">
-          <p className="font-bold text-green-600">Rp {item.price}</p>
+        {/* Rating Bintang */}
+        <div className="flex items-center mt-3 gap-1">
+          <div className="flex text-orange-400 text-xs">
+            {"★".repeat(Math.floor(product.rating || 5))}
+          </div>
+          <span className="text-xs text-gray-400 ml-1">
+            {(product.rating || 5).toFixed(1)}
+          </span>
+        </div>
 
-          <button
-            onClick={() => onBuy(item)}
-            className="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+        {/* Harga */}
+        <div className="flex items-center gap-2 mt-2">
+          {product.oldPrice && (
+            <span className="text-red-500 line-through text-[10px] italic font-medium">
+              IDR {formatIDR(product.oldPrice)}
+            </span>
+          )}
+          <span className="text-orange-500 font-bold text-lg">
+            IDR {formatIDR(product.price)}
+          </span>
+        </div>
+
+        {/* Tombol Aksi */}
+        <div className="flex gap-2 mt-4">
+          <Link 
+            to={`/product/${product.id}`}
+            className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-md font-medium transition text-center text-sm flex items-center justify-center"
           >
             Buy
+          </Link>
+          <button className="border border-orange-500 p-2 rounded-md group hover:bg-orange-50 transition">
+            <svg
+              xmlns="http://www.w3.org"
+              className="h-5 w-5 text-orange-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default ProductCard;
