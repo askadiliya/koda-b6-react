@@ -5,12 +5,12 @@ const OrderItem = ({ order }) => {
   return (
     <div className="flex items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm">
       {/* Gambar Produk Placeholder */}
-      <div className="w-16 h-16 bg-gray-200 rounded-lg mr-4 flex-shrink-0">
+      <div className="w-16 h-16 bg-gray-200 rounded-lg mr-4 shrink-0">
           {/* Ganti div ini dengan tag <img> Anda */}
       </div>
       
       {/* Detail Pesanan */}
-      <div className="flex-grow grid grid-cols-4 gap-4 text-xs">
+      <div className="grow grid grid-cols-4 gap-4 text-xs">
         <div>
           <p className="text-gray-500">No. Order</p>
           <p className="font-semibold">{order.noOrder}</p>
@@ -34,7 +34,7 @@ const OrderItem = ({ order }) => {
       </div>
       
       {/* Tombol Detail Pesanan */}
-      <div className="ml-4 flex-shrink-0">
+      <div className="ml-4 shrink-0">
         <button className="text-xs font-semibold text-orange-500 hover:underline">
           Views Order Detail
         </button>
@@ -102,14 +102,14 @@ function OrderHistoryPage() {
         <div className="flex gap-8">
           
           {/* Kolom Kiri: Daftar Pesanan */}
-          <div className="flex-grow space-y-4">
+          <div className="grow space-y-4">
             {dummyOrders.map((order, index) => (
               <OrderItem key={index} order={order} />
             ))}
           </div>
 
           {/* Kolom Kanan: Kotak Pesan Bantuan */}
-          <div className="w-80 flex-shrink-0 bg-white p-6 rounded-lg shadow-lg h-min">
+          <div className="w-80 shrink-0 bg-white p-6 rounded-lg shadow-lg h-min">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
               <h3 className="font-semibold">Send Us Message</h3>
