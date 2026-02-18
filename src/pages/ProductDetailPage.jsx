@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trash2, Mail, User, MapPin, Plus } from 'lucide-react';
+// import { Trash2, Mail, User, MapPin, Plus } from 'lucide-react';
 
 const PaymentDetailsPage = () => {
   const cartItems = [
