@@ -61,4 +61,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             docker pull ghcr.io/askadiliya/coffeakh:latest
-            docker run -d -p 20701:80 --name coffeakh -- network pman_web ghcr.io/askadiliya/coffeakh:latest
+            docker rm -f web-aska
+            docker run -d -p 20701:80 --name web-aska --network pman_web ghcr.io/askadiliya/coffeakh:latest
