@@ -62,4 +62,4 @@ jobs:
           script: |
             docker pull ghcr.io/askadiliya/coffeakh:latest
             docker rm -f coffeakh
-            docker run -d -p 20701:80 --name coffeakh ghcr.io/askadiliya/coffeakh:latest
+            docker run -d -p 20701:80 --name coffeakh -- network pman_web ghcr.io/askadiliya/coffeakh:latest
