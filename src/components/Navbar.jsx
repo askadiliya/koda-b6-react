@@ -16,10 +16,10 @@ function Navbar() {
           <div>
             <ul className="hidden  md:flex gap-5 text-white">
               <li>
-                <Link>Home</Link>
+                <Link className="hover:underline hover:decoration-orange-500 decoration-2 underline-offset-4 cursor-pointer">Home</Link>
               </li>
               <li>
-                <Link>Product</Link>
+                <Link className="hover:underline hover:decoration-orange-500 decoration-2 underline-offset-4 cursor-pointer">Product</Link>
               </li>
             </ul>
           </div>
